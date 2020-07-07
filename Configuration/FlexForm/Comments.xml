@@ -1,0 +1,33 @@
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:comments/Resources/Private/Language/locallang_db.xlf:flexform.title</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.validateComments>
+                        <TCEforms>
+                            <label>LLL:EXT:comments/Resources/Private/Language/locallang_db.xlf:flexform.validate_comments</label>
+                            <config>
+                              <type>check</type>
+                            </config>
+                        </TCEforms>
+                    </settings.validateComments>
+                    <settings.closeCommentary>
+                        <TCEforms>
+                            <label>LLL:EXT:comments/Resources/Private/Language/locallang_db.xlf:flexform.close_commentary</label>
+                            <config>
+                              <type>check</type>
+                            </config>
+                        </TCEforms>
+                    </settings.closeCommentary>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

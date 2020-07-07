@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+<body>
+
+<f:layout name="Default"/>
+<f:section name="Main">
+  <f:if condition="{activeUser} && !{settings.closeCommentary}">
+    <f:flashMessages />
+    <f:form action="create" name="commentObject" object="{commentObject}">
+      <fieldset>
+        <label for="comment"><f:translate key="comment.comment" extensionName="comments"/></label>
+        <f:form.textarea id="comment" property="comment" required="true" />
+      </fieldset>
+      <fieldset>
+        <label for="mailNotification"><f:translate key="comment.mail_notification" extensionName="comments"/></label>
+        <f:form.checkbox id="mailNotification" property="mailNotification" value="1"/>
+      </fieldset>
+      <button type="submit">Submit</button>
+    </f:form>
+  </f:if>
+  <f:for each="{comments}" as="comment">
+    <p>
+      <f:format.date date="{comment.crdate}" format="d.m.Y - H:i"/>
+    </p>
+    <f:if condition="{comment.user}">
+      <f:then>
+        <p><b>{comment.user.username}</b></p>
+      </f:then>
+      <f:else>
+        <f:translate key="user.disabled" extensionName="comments"/>
+      </f:else>
+    </f:if>
+    <f:if condition="{comment.disabled}">
+      <f:then>
+        <p>
+          <f:translate key="comment.disabled" extensionName="comments"/>
+        </p>
+      </f:then>
+      <f:else>
+        <p>{comment.comment}</p>
+      </f:else>
+    </f:if>
+  </f:for>
+</f:section>
+</body>
+</html>

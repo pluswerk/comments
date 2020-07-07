@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+  <file target-language="de" datatype="plaintext" original="messages" product-name="tx-comments">
+    <header/>
+    <body>
+      <trans-unit id="flexform.title">
+        <target>Erweiterte Einstellungen</target>
+      </trans-unit>
+      <trans-unit id="flexform.validate_comments">
+        <target>Kommentare überprüfen vor Veröffentlichung</target>
+      </trans-unit>
+      <trans-unit id="flexform.close_commentary">
+        <target>Kommentierung schließen</target>
+      </trans-unit>
+
+      <trans-unit id="pluginWizard.title">
+        <target>Kommentare</target>
+      </trans-unit>
+      <trans-unit id="pluginWizard.description">
+        <target>Bindet für diese Seite eine Kommentarfunktion ein.</target>
+      </trans-unit>
+
+      <trans-unit id="comment">
+        <target>Kommentar</target>
+      </trans-unit>
+      <trans-unit id="comment.user">
+        <target>Nutzer</target>
+      </trans-unit>
+      <trans-unit id="comment.comment">
+        <target>Kommentar</target>
+      </trans-unit>
+      <trans-unit id="comment.editorial_comment">
+        <target>Redaktioneller Kommentar</target>
+      </trans-unit>
+      <trans-unit id="comment.disabled">
+        <target>Kommentar ausblenden</target>
+      </trans-unit>
+      <trans-unit id="comment.page_uid">
+        <target>Seiten ID des Kommentars</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

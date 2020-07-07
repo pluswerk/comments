@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" product-name="tx-comments">
+    <body>
+      <trans-unit id="comment.disabled">
+        <source>This comment was deactivated by our editorial staff.</source>
+      </trans-unit>
+      <trans-unit id="user.disabled">
+        <source>This user does not exist anymore.</source>
+      </trans-unit>
+      <trans-unit id="comment.comment">
+        <source>Your comment:</source>
+      </trans-unit>
+      <trans-unit id="comment.mail_notification">
+        <source>Get an E-Mail notification for replies</source>
+      </trans-unit>
+
+      <trans-unit id="comment.create.success.validation">
+        <source>Your comment was created and is going to be checked by the editorial.</source>
+      </trans-unit>
+      <trans-unit id="comment.create.success.novalidation">
+        <source>Your comment was successfully created.</source>
+      </trans-unit>
+      <trans-unit id="comment.create.error">
+        <source>An error occured, your comment could not be saved. Are you still logged in?</source>
+      </trans-unit>
+
+      <trans-unit id="exception.fe_user">
+        <source>Invalid user provided. No user is logged in or the active user was deactivated.</source>
+      </trans-unit>
+      <trans-unit id="exception.no_text">
+        <source>No text was given.</source>
+      </trans-unit>
+      <trans-unit id="exception.no_action">
+        <source>No action was given.</source>
+      </trans-unit>
+      <trans-unit id="exception.no_uid">
+        <source>No comment uid was given.</source>
+      </trans-unit>
+
+      <trans-unit id="mail.subject">
+        <source>Somebody answered your comment.</source>
+      </trans-unit>
+      <trans-unit id="mail.body.0">
+        <source>Somebody answered to your comment.</source>
+      </trans-unit>
+      <trans-unit id="mail.body.1">
+        <source>Answer:</source>
+      </trans-unit>
+      <trans-unit id="mail.body.2">
+        <source>Your comment:</source>
+      </trans-unit>
+
+      <trans-unit id="list.no_comments">
+        <source>No comments were written on this page by now.</source>
+      </trans-unit>
+      <trans-unit id="list.administration">
+        <source>Comment administration</source>
+      </trans-unit>
+      <trans-unit id="list.approval">
+        <source>Comment approval</source>
+      </trans-unit>
+
+      <trans-unit id="dashboard.new">
+        <source>Newest unapproved comments</source>
+      </trans-unit>
+
+      <trans-unit id="show.comments">
+        <source>Comments on Page</source>
+      </trans-unit>
+
+      <trans-unit id="table.page">
+        <source>Page</source>
+      </trans-unit>
+      <trans-unit id="table.time">
+        <source>Time</source>
+      </trans-unit>
+      <trans-unit id="table.comment">
+        <source>Comment</source>
+      </trans-unit>
+      <trans-unit id="table.editorial_comment">
+        <source>Editorial comment</source>
+      </trans-unit>
+      <trans-unit id="table.actions">
+        <source>Actions</source>
+      </trans-unit>
+      <trans-unit id="table.comment_disabled">
+        <source>Comment is disabled!</source>
+      </trans-unit>
+      <trans-unit id="table.edit_editorial_comment">
+        <source>Edit editorial comment</source>
+      </trans-unit>
+      <trans-unit id="table.add_editorial_comment">
+        <source>Add editorial comment</source>
+      </trans-unit>
+      <trans-unit id="table.submit">
+        <source>Submit</source>
+      </trans-unit>
+      <trans-unit id="table.reenable">
+        <source>Reenable</source>
+      </trans-unit>
+      <trans-unit id="table.disable">
+        <source>Disable</source>
+      </trans-unit>
+      <trans-unit id="table.delete">
+        <source>Delete</source>
+      </trans-unit>
+      <trans-unit id="table.approve">
+        <source>Approve</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,19 @@
+plugin.tx_comments {
+  view {
+    templateRootPath = EXT:comments/Resources/Private/Templates/
+    partialRootPath = EXT:comments/Resources/Private/Partials/
+    layoutRootPath = EXT:comments/Resources/Private/Layouts/
+  }
+
+  persistence {
+    storagePid =
+  }
+}
+
+module.tx_comments {
+  view {
+    templateRootPath = EXT:comments/Resources/Private/Backend/Templates/
+    partialRootPath = EXT:comments/Resources/Private/Backend/Partials/
+    layoutRootPath = EXT:comments/Resources/Private/Backend/Layouts/
+  }
+}

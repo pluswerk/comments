@@ -1,0 +1,40 @@
+plugin.tx_comments {
+  view {
+    templateRootPath >
+    templateRootPaths.100 = {$plugin.tx_comments.view.templateRootPath}
+    partialRootPath >
+    partialRootPaths.100 = {$plugin.tx_comments.view.partialRootPath}
+    layoutRootPath >
+    layoutRootPaths.100 = {$plugin.tx_comments.view.layoutRootPath}
+  }
+
+  persistence {
+    storagePid = {$plugin.tx_comments.persistence.storagePid}
+  }
+}
+
+module.tx_comments {
+  view {
+    templateRootPath >
+    templateRootPaths.100 = {$module.tx_comments.view.templateRootPath}
+    partialRootPath >
+    partialRootPaths.100 = {$module.tx_comments.view.partialRootPath}
+    layoutRootPath >
+    layoutRootPaths.100 = {$module.tx_comments.view.layoutRootPath}
+  }
+
+  persistence {
+    storagePid =
+  }
+}
+
+config.tx_extbase.persistence.classes {
+  Pluswerk\Comments\Domain\Model\Comment.mapping {
+    tableName = tx_comments_domain_model_comment
+    columns {
+      crdate.mapOnProperty = crdate
+      hidden.mapOnProperty = hidden
+      deleted.mapOnProperty = deleted
+    }
+  }
+}

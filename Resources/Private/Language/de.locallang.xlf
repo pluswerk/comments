@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+  <file target-language="de" datatype="plaintext" original="messages" product-name="tx-comments">
+    <body>
+      <trans-unit id="comment.disabled">
+        <target>Dieser Kommentar wurde von unserer Redaktion deaktiviert.</target>
+      </trans-unit>
+      <trans-unit id="user.disabled">
+        <target>Dieser Nutzer existiert nicht mehr.</target>
+      </trans-unit>
+      <trans-unit id="comment.comment">
+        <target>Ihr Kommentar:</target>
+      </trans-unit>
+      <trans-unit id="comment.mail_notification">
+        <target>Mail-Benachrichtigung für Antworten erhalten</target>
+      </trans-unit>
+
+      <trans-unit id="comment.create.success.validation">
+        <target>Ihr Kommentar wurde erfolgreich erstellt und wird von der Redaktion vor dem Freischalten überprüft.</target>
+      </trans-unit>
+      <trans-unit id="comment.create.success.novalidation">
+        <target>Ihr Kommentar wurde erfolgreich erstellt.</target>
+      </trans-unit>
+      <trans-unit id="comment.create.error">
+        <target>Ihr Kommentar konnte aufgrund eines Fehlers nicht erstellt werden. Sind Sie eingeloggt?</target>
+      </trans-unit>
+
+      <trans-unit id="exception.fe_user">
+        <target>Kein Nutzer ist eingeloggt, oder der aktuelle Nutzer wurde gelöscht.</target>
+      </trans-unit>
+      <trans-unit id="exception.no_text">
+        <target>Es wurde kein Text übertragen.</target>
+      </trans-unit>
+      <trans-unit id="exception.no_action">
+        <target>Es wurde keine Aktion übertragen.</target>
+      </trans-unit>
+      <trans-unit id="exception.no_uid">
+        <target>Es wurde keine Kommentar-ID übertragen.</target>
+      </trans-unit>
+
+      <trans-unit id="mail.subject">
+        <target>Jemand hat auf Ihren Kommentar geantwortet.</target>
+      </trans-unit>
+      <trans-unit id="mail.body.0">
+        <target>Jemand hat auf Ihren Kommentar geantwortet.</target>
+      </trans-unit>
+      <trans-unit id="mail.body.1">
+        <target>Antwort:</target>
+      </trans-unit>
+      <trans-unit id="mail.body.2">
+        <target>Ursprünglicher Kommentar:</target>
+      </trans-unit>
+
+      <trans-unit id="list.no_comments">
+        <target>Auf dieser Seite wurden noch keine Kommentare verfasst.</target>
+      </trans-unit>
+      <trans-unit id="list.administration">
+        <target>Kommentarverwaltung</target>
+      </trans-unit>
+      <trans-unit id="list.approval">
+        <target>Kommentarfreigabe</target>
+      </trans-unit>
+
+      <trans-unit id="dashboard.new">
+        <target>Neuste freizugebende Kommentare</target>
+      </trans-unit>
+
+      <trans-unit id="show.comments">
+        <target>Kommentare auf Seite</target>
+      </trans-unit>
+
+      <trans-unit id="table.page">
+        <target>Seite</target>
+      </trans-unit>
+      <trans-unit id="table.time">
+        <target>Zeit</target>
+      </trans-unit>
+      <trans-unit id="table.comment">
+        <target>Kommentar</target>
+      </trans-unit>
+      <trans-unit id="table.editorial_comment">
+        <target>Redaktionskommentar</target>
+      </trans-unit>
+      <trans-unit id="table.actions">
+        <target>Aktionen</target>
+      </trans-unit>
+      <trans-unit id="table.comment_disabled">
+        <target>Kommentar ist deaktiviert!</target>
+      </trans-unit>
+      <trans-unit id="table.edit_editorial_comment">
+        <target>Redaktionskommentar bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="table.add_editorial_comment">
+        <target>Redaktionskommentar hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="table.submit">
+        <target>Absenden</target>
+      </trans-unit>
+      <trans-unit id="table.reenable">
+        <target>Wiederherstellen</target>
+      </trans-unit>
+      <trans-unit id="table.disable">
+        <target>Deaktivieren</target>
+      </trans-unit>
+      <trans-unit id="table.delete">
+        <target>Löschen</target>
+      </trans-unit>
+      <trans-unit id="table.approve">
+        <target>Akzeptieren</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

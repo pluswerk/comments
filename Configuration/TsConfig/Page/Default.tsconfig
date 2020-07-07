@@ -1,0 +1,13 @@
+mod.wizards.newContentElement.wizardItems.plugins {
+    elements {
+        tx_comments_comments {
+            iconIdentifier = ext-comments-wizard-icon
+            title = LLL:EXT:comments/Resources/Private/Language/locallang_db.xlf:pluginWizard.title
+            description = LLL:EXT:comments/Resources/Private/Language/locallang_db.xlf:pluginWizard.description
+            tt_content_defValues {
+                CType = list
+                list_type = comments_comments
+            }
+        }
+    }
+}

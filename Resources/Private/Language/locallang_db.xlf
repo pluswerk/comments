@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" product-name="tx-comments">
+    <header/>
+    <body>
+      <trans-unit id="flexform.title">
+        <source>Additional Settings</source>
+      </trans-unit>
+      <trans-unit id="flexform.validate_comments">
+        <source>Validate comments before publishing</source>
+      </trans-unit>
+      <trans-unit id="flexform.close_commentary">
+        <source>Close commentary</source>
+      </trans-unit>
+
+      <trans-unit id="pluginWizard.title">
+        <source>Comments</source>
+      </trans-unit>
+      <trans-unit id="pluginWizard.description">
+        <source>Inserts a comment form to this page.</source>
+      </trans-unit>
+
+      <trans-unit id="comment">
+        <source>Comment</source>
+      </trans-unit>
+      <trans-unit id="comment.user">
+        <source>User</source>
+      </trans-unit>
+      <trans-unit id="comment.comment">
+        <source>Comment</source>
+      </trans-unit>
+      <trans-unit id="comment.editorial_comment">
+        <source>Editorial comment</source>
+      </trans-unit>
+      <trans-unit id="comment.disabled">
+        <source>Disable comment</source>
+      </trans-unit>
+      <trans-unit id="comment.page_uid">
+        <source>Page-id of comment</source>
+      </trans-unit>
+
+    </body>
+  </file>
+</xliff>
