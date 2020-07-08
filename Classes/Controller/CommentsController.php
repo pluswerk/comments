@@ -30,8 +30,17 @@ class CommentsController extends ActionController
     public function listAction(): void
     {
         $context = GeneralUtility::makeInstance(Context::class);
+        $user = null;
+        if (
+            $context->getPropertyFromAspect('frontend.user', 'isLoggedIn') &&
+            is_array($this->getTypoScriptFrontEndController()->fe_user->user) &&
+            $this->getTypoScriptFrontEndController()->fe_user->user['uid']
+        ) {
+            $user = $this->getFrontendUser();
+        }
+
         $this->view->assign('comments', $this->commentRepository->findByPageUid((int)$this->getTypoScriptFrontEndController()->id));
-        $this->view->assign('activeUser', $context->getPropertyFromAspect('frontend.user', 'isLoggedIn'));
+        $this->view->assign('activeUser', $user);
         $this->view->assign('commentObject', GeneralUtility::makeInstance(Comment::class));
     }
 
@@ -63,6 +72,35 @@ class CommentsController extends ActionController
             $commentObject->setPageUid((int)$this->getTypoScriptFrontEndController()->id);
             $commentRepository->add($commentObject);
             $this->objectManager->get(PersistenceManager::class)->persistAll();
+        }
+
+        $this->addFlashMessage(LocalizationUtility::translate($flashMessageContent, 'comments'));
+        $redirectUrl = $this->uriBuilder->setTargetPageUid((int)$this->getTypoScriptFrontEndController()->id)->buildFrontendUri();
+        $this->redirectToUri($redirectUrl);
+    }
+
+    /**
+     * @param Comment $commentObject
+     * @return void
+     */
+    public function deleteAction(Comment $commentObject): void
+    {
+        $flashMessageContent = 'comment.delete.error';
+
+        $context = GeneralUtility::makeInstance(Context::class);
+        if (
+            $context->getPropertyFromAspect('frontend.user', 'isLoggedIn') &&
+            is_array($this->getTypoScriptFrontEndController()->fe_user->user) &&
+            $this->getTypoScriptFrontEndController()->fe_user->user['uid']
+        ) {
+            $feUser = $this->getFrontendUser();
+            if ($feUser->getUid() === (int)$this->getTypoScriptFrontEndController()->fe_user->user['uid']) {
+                $commentRepository = $this->objectManager->get(CommentRepository::class);
+                $flashMessageContent = 'comment.delete.success';
+                $commentObject->setDisabled(true);
+                $commentRepository->update($commentObject);
+                $this->objectManager->get(PersistenceManager::class)->persistAll();
+            }
         }
 
         $this->addFlashMessage(LocalizationUtility::translate($flashMessageContent, 'comments'));

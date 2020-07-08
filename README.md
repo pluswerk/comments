@@ -12,7 +12,8 @@ Features:
 - the editorial can reply to comments
 - mail notifications for comments
 - disabling comments (e.g. inappropriate comments)
-- extendable fluid-templates
+- extendable (bootstrapped) fluid-templates
+- users can delete their comments
 
 
 # How to
@@ -28,9 +29,6 @@ If a page is selected, the editorial can see all comments on the current page an
 Disabled comments can be reenabled.
 
 ![image](https://user-images.githubusercontent.com/17744843/86807234-fc9dd780-c079-11ea-86b4-5b173adb3402.png)
-
-
-
 
 # Important notices
 - The plugins are uncached because of the user-login-check. So pages with a comment section do not work together with a static file cache.

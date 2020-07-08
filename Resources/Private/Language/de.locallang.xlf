@@ -3,7 +3,7 @@
   <file target-language="de" datatype="plaintext" original="messages" product-name="tx-comments">
     <body>
       <trans-unit id="comment.disabled">
-        <target>Dieser Kommentar wurde von unserer Redaktion deaktiviert.</target>
+        <target>Dieser Kommentar wurde entfernt.</target>
       </trans-unit>
       <trans-unit id="user.disabled">
         <target>Dieser Nutzer existiert nicht mehr.</target>
@@ -14,6 +14,9 @@
       <trans-unit id="comment.mail_notification">
         <target>Mail-Benachrichtigung für Antworten erhalten</target>
       </trans-unit>
+      <trans-unit id="comment.editorial_comment">
+        <target>Anmerkung der Redaktion:</target>
+      </trans-unit>
 
       <trans-unit id="comment.create.success.validation">
         <target>Ihr Kommentar wurde erfolgreich erstellt und wird von der Redaktion vor dem Freischalten überprüft.</target>
@@ -23,6 +26,12 @@
       </trans-unit>
       <trans-unit id="comment.create.error">
         <target>Ihr Kommentar konnte aufgrund eines Fehlers nicht erstellt werden. Sind Sie eingeloggt?</target>
+      </trans-unit>
+      <trans-unit id="comment.delete.error">
+        <target>Ein Fehler ist beim Löschen des Kommentars aufgetreten.</target>
+      </trans-unit>
+      <trans-unit id="comment.delete.success">
+        <target>Der Kommentar wurde erfolgreich gelöscht.</target>
       </trans-unit>
 
       <trans-unit id="exception.fe_user">

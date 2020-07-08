@@ -3,7 +3,7 @@
   <file source-language="en" datatype="plaintext" original="messages" product-name="tx-comments">
     <body>
       <trans-unit id="comment.disabled">
-        <source>This comment was deactivated by our editorial staff.</source>
+        <source>This comment was removed.</source>
       </trans-unit>
       <trans-unit id="user.disabled">
         <source>This user does not exist anymore.</source>
@@ -14,6 +14,9 @@
       <trans-unit id="comment.mail_notification">
         <source>Get an E-Mail notification for replies</source>
       </trans-unit>
+      <trans-unit id="comment.editorial_comment">
+        <source>Editor's note:</source>
+      </trans-unit>
 
       <trans-unit id="comment.create.success.validation">
         <source>Your comment was created and is going to be checked by the editorial.</source>
@@ -23,6 +26,12 @@
       </trans-unit>
       <trans-unit id="comment.create.error">
         <source>An error occured, your comment could not be saved. Are you still logged in?</source>
+      </trans-unit>
+      <trans-unit id="comment.delete.error">
+        <source>An error occured deleting your comment.</source>
+      </trans-unit>
+      <trans-unit id="comment.delete.success">
+        <source>Your comment was successfully deleted.</source>
       </trans-unit>
 
       <trans-unit id="exception.fe_user">

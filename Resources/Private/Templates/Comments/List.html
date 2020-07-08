@@ -5,42 +5,82 @@
 
 <f:layout name="Default"/>
 <f:section name="Main">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <f:if condition="{activeUser} && !{settings.closeCommentary}">
-    <f:flashMessages />
-    <f:form action="create" name="commentObject" object="{commentObject}">
-      <fieldset>
-        <label for="comment"><f:translate key="comment.comment" extensionName="comments"/></label>
-        <f:form.textarea id="comment" property="comment" required="true" />
-      </fieldset>
-      <fieldset>
-        <label for="mailNotification"><f:translate key="comment.mail_notification" extensionName="comments"/></label>
-        <f:form.checkbox id="mailNotification" property="mailNotification" value="1"/>
-      </fieldset>
-      <button type="submit">Submit</button>
-    </f:form>
+    <div class="panel panel-info mb-5">
+      <div class="panel-body">
+        <f:flashMessages/>
+        <f:form action="create" name="commentObject" object="{commentObject}">
+          <div class="form-group">
+            <label for="comment">
+              <f:translate key="comment.comment" extensionName="comments"/>
+            </label>
+            <f:form.textarea id="comment" property="comment" required="true" class="form-control"/>
+          </div>
+          <div class="form-check mb-1">
+            <f:form.checkbox id="mailNotification" class="form-check-input" property="mailNotification" value="1"/>
+            <label for="mailNotification" class="form-check-label">
+              <f:translate key="comment.mail_notification" extensionName="comments"/>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </f:form>
+      </div>
+    </div>
   </f:if>
   <f:for each="{comments}" as="comment">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-2">
+            <f:format.date date="{comment.crdate}" format="d.m.Y - H:i"/>
+          </div>
+          <div class="{f:if(condition: '{activeUser.uid} == {comment.user.uid}', then: 'col-md-8', else: 'col-md-10')}">
+            <f:if condition="{comment.user}">
+              <f:then>
+                <p><b>{comment.user.username}</b></p>
+              </f:then>
+              <f:else>
+                <p><f:translate key="user.disabled" extensionName="comments"/></p>
+              </f:else>
+            </f:if>
+            <f:if condition="{comment.disabled}">
+              <f:then>
+                <p>
+                  <f:translate key="comment.disabled" extensionName="comments"/>
+                </p>
+              </f:then>
+              <f:else>
+                <p>{comment.comment}</p>
+              </f:else>
+            </f:if>
+          </div>
+          <f:if condition="{activeUser.uid} == {comment.user.uid} && !{comment.disabled}">
+            <div class="col-md-2">
+              <f:link.action action="delete" arguments="{commentObject: comment}">
+                <f:translate key="table.delete" extensionName="comments"/>
+              </f:link.action>
+            </div>
+          </f:if>
+        </div>
+        <f:if condition="{comment.editorialComment}">
+          <div class="card card-inner">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <p><b><f:translate key="comment.editorial_comment" extensionName="comments" /></b></p>
+                  <p>{comment.editorialComment}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </f:if>
+      </div>
+    </div>
     <p>
-      <f:format.date date="{comment.crdate}" format="d.m.Y - H:i"/>
     </p>
-    <f:if condition="{comment.user}">
-      <f:then>
-        <p><b>{comment.user.username}</b></p>
-      </f:then>
-      <f:else>
-        <f:translate key="user.disabled" extensionName="comments"/>
-      </f:else>
-    </f:if>
-    <f:if condition="{comment.disabled}">
-      <f:then>
-        <p>
-          <f:translate key="comment.disabled" extensionName="comments"/>
-        </p>
-      </f:then>
-      <f:else>
-        <p>{comment.comment}</p>
-      </f:else>
-    </f:if>
+
+
   </f:for>
 </f:section>
 </body>

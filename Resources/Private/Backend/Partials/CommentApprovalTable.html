@@ -22,6 +22,9 @@
           </td>
           <td>{comment.comment}</td>
           <td align="right">
+            <button class="btn btn-danger js-editComment" data-comment-uid="{comment.uid}" data-action="delete">
+              <f:translate key="table.delete" extensionName="comments"/>
+            </button>
             <button class="btn btn-success js-editComment" data-comment-uid="{comment.uid}" data-action="approve">
               <f:translate key="table.approve" extensionName="comments"/>
             </button>
