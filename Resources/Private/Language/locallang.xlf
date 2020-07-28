@@ -76,7 +76,7 @@
         <source>Comment approval</source>
       </trans-unit>
       <trans-unit id="list.report">
-        <source>Reported Comments</source>
+        <source>Reported comments</source>
       </trans-unit>
 
       <trans-unit id="dashboard">

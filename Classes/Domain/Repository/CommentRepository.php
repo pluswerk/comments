@@ -64,7 +64,7 @@ class CommentRepository extends Repository
         return $query->execute();
     }
 
-    public function findByAcknowledged(int $pageUid = 0)
+    public function findAcknowledgedByPageUid(int $pageUid = 0)
     {
         $query = $this->createQuery();
 
@@ -89,7 +89,7 @@ class CommentRepository extends Repository
         return $query->execute();
     }
 
-    public function findByHidden(int $pageUid = 0)
+    public function findHiddenByPageUid(int $pageUid = 0)
     {
         $query = $this->createQuery();
 
@@ -114,7 +114,7 @@ class CommentRepository extends Repository
         return $query->execute();
     }
 
-    public function findReported(int $pageUid = 0)
+    public function findReportedByPageUid(int $pageUid = 0)
     {
         $query = $this->createQuery();
 
