@@ -14,6 +14,7 @@ Features:
 - disabling comments (e.g. inappropriate comments)
 - extendable (bootstrapped) fluid-templates
 - users can delete their comments
+- users can report comments
 
 
 # How to

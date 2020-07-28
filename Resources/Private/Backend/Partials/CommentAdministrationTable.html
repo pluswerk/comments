@@ -14,8 +14,8 @@
     </tr>
     </thead>
     <tbody>
-    <f:for each="{comments}" as="comment">
-      <f:if condition="!{comment.hidden}">
+    <f:be.widget.paginate objects="{comments}" as="paginatedComments" configuration="{itemsPerPage: 20, insertBelow: 1}">
+      <f:for each="{paginatedComments}" as="comment">
         <tr id="table-row-{comment.uid}">
           <td class="nowrap">{comment.pageUid}</td>
           <td>
@@ -60,8 +60,8 @@
             <button class="btn btn-danger js-editComment" data-comment-uid="{comment.uid}" data-action="delete"><f:translate key="table.delete" extensionName="comments"/></button>
           </td>
         </tr>
-      </f:if>
-    </f:for>
+      </f:for>
+    </f:be.widget.paginate>
     </tbody>
   </table>
 </f:section>

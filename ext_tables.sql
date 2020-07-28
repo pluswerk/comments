@@ -8,6 +8,8 @@ CREATE TABLE tx_comments_domain_model_comment (
   disabled tinyint(4) unsigned DEFAULT '0' NOT NULL,
   mail_notification tinyint(4) unsigned DEFAULT '0' NOT NULL,
   page_uid int(11) DEFAULT '0' NOT NULL,
+  reported tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  acknowledged tinyint(4) unsigned DEFAULT '0' NOT NULL,
 
   l10n_parent int(11) DEFAULT '0' NOT NULL,
   l10n_diffsource mediumblob,

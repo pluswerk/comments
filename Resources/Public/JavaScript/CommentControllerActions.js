@@ -1,6 +1,7 @@
 require(['jquery'], function ($) {
   $(function () {
     var scrollElementSelector = sessionStorage.getItem('frame-scroll-element');
+    var activeTab = sessionStorage.getItem('active-comments-tab');
     sessionStorage.setItem('frame-scroll-element', 'none');
 
     if (scrollElementSelector && scrollElementSelector !== 'none') {
@@ -8,8 +9,19 @@ require(['jquery'], function ($) {
       scrollElement.scrollIntoView();
     }
 
+    if (activeTab) {
+      var activeTabElement = document.querySelector('a[href="' + activeTab + '"]');
+      if (activeTabElement) {
+        activeTabElement.click();
+      }
+    }
+
     $('.js-reload-frame').click(function () {
       window.location.reload();
+    });
+
+    $('.t3js-tabmenu-item a').click(function () {
+      sessionStorage.setItem('active-comments-tab', $(this).attr('href'));
     });
 
     $('.js-editComment').click(function () {

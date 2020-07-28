@@ -33,6 +33,12 @@
       <trans-unit id="comment.delete.success">
         <target>Der Kommentar wurde erfolgreich gelöscht.</target>
       </trans-unit>
+      <trans-unit id="comment.report.error">
+        <target>Ein Fehler ist beim Melden des Kommentars aufgetreten.</target>
+      </trans-unit>
+      <trans-unit id="comment.report.success">
+        <target>Der Kommentar wurde erfolgreich gemeldet.</target>
+      </trans-unit>
 
       <trans-unit id="exception.fe_user">
         <target>Kein Nutzer ist eingeloggt, oder der aktuelle Nutzer wurde gelöscht.</target>
@@ -69,9 +75,18 @@
       <trans-unit id="list.approval">
         <target>Kommentarfreigabe</target>
       </trans-unit>
+      <trans-unit id="list.report">
+        <target>Gemeldete Kommentare</target>
+      </trans-unit>
 
       <trans-unit id="dashboard.new">
         <target>Neuste freizugebende Kommentare</target>
+      </trans-unit>
+      <trans-unit id="dashboard.reported">
+        <target>Neuste gemeldete Kommentare</target>
+      </trans-unit>
+      <trans-unit id="dashboard.acknowledged">
+        <target>Gemeldete, ignorierte Kommentare</target>
       </trans-unit>
 
       <trans-unit id="show.comments">
@@ -111,8 +126,14 @@
       <trans-unit id="table.disable">
         <target>Deaktivieren</target>
       </trans-unit>
+      <trans-unit id="table.acknowledge">
+        <target>Meldung ignorieren</target>
+      </trans-unit>
       <trans-unit id="table.delete">
         <target>Löschen</target>
+      </trans-unit>
+      <trans-unit id="table.report">
+        <target>Melden</target>
       </trans-unit>
       <trans-unit id="table.approve">
         <target>Akzeptieren</target>

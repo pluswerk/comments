@@ -38,7 +38,12 @@
       <trans-unit id="comment.page_uid">
         <source>Page-id of comment</source>
       </trans-unit>
-
+      <trans-unit id="comment.reported">
+        <source>Reported</source>
+      </trans-unit>
+      <trans-unit id="comment.acknowledged">
+        <source>Report acknowledged</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

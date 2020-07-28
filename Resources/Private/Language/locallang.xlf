@@ -33,6 +33,12 @@
       <trans-unit id="comment.delete.success">
         <source>Your comment was successfully deleted.</source>
       </trans-unit>
+      <trans-unit id="comment.report.error">
+        <source>An error occured reporting the comment.</source>
+      </trans-unit>
+      <trans-unit id="comment.report.success">
+        <source>The comment was successfully reported.</source>
+      </trans-unit>
 
       <trans-unit id="exception.fe_user">
         <source>Invalid user provided. No user is logged in or the active user was deactivated.</source>
@@ -69,9 +75,21 @@
       <trans-unit id="list.approval">
         <source>Comment approval</source>
       </trans-unit>
+      <trans-unit id="list.report">
+        <source>Reported comments</source>
+      </trans-unit>
 
+      <trans-unit id="dashboard">
+        <source>Dashboard</source>
+      </trans-unit>
       <trans-unit id="dashboard.new">
         <source>Newest unapproved comments</source>
+      </trans-unit>
+      <trans-unit id="dashboard.reported">
+        <source>Newest reported comments</source>
+      </trans-unit>
+      <trans-unit id="dashboard.acknowledged">
+        <source>Reported, acknowledged comments</source>
       </trans-unit>
 
       <trans-unit id="show.comments">
@@ -111,8 +129,14 @@
       <trans-unit id="table.disable">
         <source>Disable</source>
       </trans-unit>
+      <trans-unit id="table.acknowledge">
+        <source>Acknowledge</source>
+      </trans-unit>
       <trans-unit id="table.delete">
         <source>Delete</source>
+      </trans-unit>
+      <trans-unit id="table.report">
+        <source>Report</source>
       </trans-unit>
       <trans-unit id="table.approve">
         <source>Approve</source>
