@@ -13,19 +13,19 @@
     </tr>
     </thead>
     <tbody>
-    <f:be.widget.paginate objects="{hiddenComments}" as="paginatedHiddenComments" configuration="{itemsPerPage: 2, insertBelow: 1}">
-      <f:for each="{paginatedHiddenComments}" as="comment">
+    <f:be.widget.paginate objects="{hiddenComments}" as="paginatedHiddenComments" configuration="{itemsPerPage: 20, insertBelow: 1}">
+      <f:for each="{paginatedHiddenComments}" as="hiddenComment">
         <tr>
-          <td class="nowrap">{comment.pageUid}</td>
+          <td class="nowrap">{hiddenComment.pageUid}</td>
           <td>
-            <f:format.date format="d.m.Y - H:i" date="{comment.crdate}"/>
+            <f:format.date format="d.m.Y - H:i" date="{hiddenComment.crdate}"/>
           </td>
-          <td>{comment.comment}</td>
+          <td>{hiddenComment.comment}</td>
           <td align="right">
-            <button class="btn btn-danger js-editComment" data-comment-uid="{comment.uid}" data-action="delete">
+            <button class="btn btn-danger js-editComment" data-comment-uid="{hiddenComment.uid}" data-action="delete">
               <f:translate key="table.delete" extensionName="comments"/>
             </button>
-            <button class="btn btn-success js-editComment" data-comment-uid="{comment.uid}" data-action="approve">
+            <button class="btn btn-success js-editComment" data-comment-uid="{hiddenComment.uid}" data-action="approve">
               <f:translate key="table.approve" extensionName="comments"/>
             </button>
           </td>

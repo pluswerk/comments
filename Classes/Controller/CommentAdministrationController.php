@@ -38,7 +38,7 @@ class CommentAdministrationController extends ActionController
 
         $page = BackendUtility::getRecord('pages', $pageId);
 
-        $comments = $this->commentRepository->findByPageUidIncludeHidden($pageId);
+        $comments = $this->commentRepository->findByPageUid($pageId);
         $reportedComments = $this->commentRepository->findReported($pageId);
         $acknowledgedComments = $this->commentRepository->findByAcknowledged($pageId);
         $hiddenComments = $this->commentRepository->findByHidden($pageId);
@@ -57,7 +57,7 @@ class CommentAdministrationController extends ActionController
     {
         $querySettings = GeneralUtility::makeInstance(Typo3QuerySettings::class);
         $this->commentRepository->setDefaultQuerySettings($querySettings);
-        $comments = $this->commentRepository->findAllIncludeHidden();
+        $comments = $this->commentRepository->findAll();
         $reportedComments = $this->commentRepository->findReported();
         $acknowledgedComments = $this->commentRepository->findByAcknowledged();
         $hiddenComments = $this->commentRepository->findByHidden();

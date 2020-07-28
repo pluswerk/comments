@@ -11,7 +11,9 @@ require(['jquery'], function ($) {
 
     if (activeTab) {
       var activeTabElement = document.querySelector('a[href="' + activeTab + '"]');
-      activeTabElement.click();
+      if (activeTabElement) {
+        activeTabElement.click();
+      }
     }
 
     $('.js-reload-frame').click(function () {

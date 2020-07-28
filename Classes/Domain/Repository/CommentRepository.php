@@ -53,13 +53,12 @@ class CommentRepository extends Repository
      *
      * @return QueryResultInterface|array
      */
-    public function findByPageUidIncludeHidden(int $pageUid)
+    public function findByPageUid(int $pageUid)
     {
         $query = $this->createQuery();
 
         $query->getQuerySettings()
-            ->setRespectStoragePage(false)
-            ->setIgnoreEnableFields(true);
+            ->setRespectStoragePage(false);
 
         $query->matching($query->equals('pageUid', $pageUid));
         return $query->execute();
@@ -72,10 +71,20 @@ class CommentRepository extends Repository
         $query->getQuerySettings()
             ->setRespectStoragePage(false)
             ->setIgnoreEnableFields(true);
-        $query->matching($query->equals('acknowledged', 1));
+
+        $whereClauses = [
+            $query->equals('acknowledged', 1)
+        ];
+
         if ($pageUid !== 0) {
-            $query->matching($query->equals('pageUid', $pageUid));
+            $whereClauses[] = $query->equals('pageUid', $pageUid);
         }
+
+        $query->matching(
+            $query->logicalAnd(
+                $whereClauses
+            )
+        );
 
         return $query->execute();
     }
@@ -88,10 +97,19 @@ class CommentRepository extends Repository
             ->setRespectStoragePage(false)
             ->setIgnoreEnableFields(true);
 
-        $query->matching($query->equals('hidden', 1));
+        $whereClauses = [
+            $query->equals('hidden', 1)
+        ];
+
         if ($pageUid !== 0) {
-            $query->matching($query->equals('pageUid', $pageUid));
+            $whereClauses[] = $query->equals('pageUid', $pageUid);
         }
+
+        $query->matching(
+            $query->logicalAnd(
+                $whereClauses
+            )
+        );
 
         return $query->execute();
     }
