@@ -14,7 +14,7 @@
     </tr>
     </thead>
     <tbody>
-    <f:for each="{comments}" as="comment">
+    <f:be.widget.paginate objects="{comments}" as="paginatedComments" configuration="{itemsPerPage: 20, insertBelow: 1}">
       <f:if condition="!{comment.hidden}">
         <tr id="table-row-{comment.uid}">
           <td class="nowrap">{comment.pageUid}</td>
@@ -61,7 +61,7 @@
           </td>
         </tr>
       </f:if>
-    </f:for>
+    </f:be.widget.paginate>
     </tbody>
   </table>
 </f:section>

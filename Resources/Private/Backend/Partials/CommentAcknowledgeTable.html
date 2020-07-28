@@ -13,8 +13,8 @@
     </tr>
     </thead>
     <tbody>
-    <f:be.widget.paginate objects="{hiddenComments}" as="paginatedHiddenComments" configuration="{itemsPerPage: 2, insertBelow: 1}">
-      <f:for each="{paginatedHiddenComments}" as="comment">
+    <f:be.widget.paginate objects="{acknowledgedComments}" as="paginatedAcknowledgedComments" configuration="{itemsPerPage: 20, insertBelow: 1}">
+      <f:for each="{paginatedAcknowledgedComments}" as="comment">
         <tr>
           <td class="nowrap">{comment.pageUid}</td>
           <td>
@@ -25,8 +25,8 @@
             <button class="btn btn-danger js-editComment" data-comment-uid="{comment.uid}" data-action="delete">
               <f:translate key="table.delete" extensionName="comments"/>
             </button>
-            <button class="btn btn-success js-editComment" data-comment-uid="{comment.uid}" data-action="approve">
-              <f:translate key="table.approve" extensionName="comments"/>
+            <button class="btn btn-primary js-editComment" data-comment-uid="{comment.uid}" data-action="disable">
+              <f:translate key="table.disable" extensionName="comments"/>
             </button>
           </td>
         </tr>

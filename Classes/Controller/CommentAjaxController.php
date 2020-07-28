@@ -94,10 +94,16 @@ class CommentAjaxController
                 break;
             case 'enable':
                 $comment->setDisabled(false);
+                $comment->setReported(false);
+                $comment->setAcknowledged(false);
                 $postProcessAction = 'reload';
                 break;
             case 'delete':
                 $comment->setDeleted(true);
+                $postProcessAction = 'delete';
+                break;
+            case 'acknowledge':
+                $comment->setAcknowledged(true);
                 $postProcessAction = 'delete';
                 break;
             case 'edit':

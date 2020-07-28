@@ -28,7 +28,7 @@ return [
     ],
     'types' => [
         '1' => [
-            'showitem' => 'user, comment, editorial_comment, disabled, mail_notification, page_uid,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, hidden, --palette--;;1, starttime, endtime',
+            'showitem' => 'user, comment, editorial_comment, disabled, mail_notification, page_uid, reported,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, hidden, --palette--;;1, starttime, endtime',
         ],
     ],
     'columns' => [
@@ -169,6 +169,22 @@ return [
         'mail_notification' => [
             'exclude' => true,
             'label' => 'LLL:EXT:comments/Resources/Private/Language/locallang_db.xlf:comment.mail_notification',
+            'config' => [
+                'type' => 'check',
+                'readOnly' => true,
+            ],
+        ],
+        'reported' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:comments/Resources/Private/Language/locallang_db.xlf:comment.reported',
+            'config' => [
+                'type' => 'check',
+                'readOnly' => true,
+            ],
+        ],
+        'acknowledged' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:comments/Resources/Private/Language/locallang_db.xlf:comment.acknowledged',
             'config' => [
                 'type' => 'check',
                 'readOnly' => true,

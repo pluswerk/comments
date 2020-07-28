@@ -55,6 +55,16 @@ class Comment extends AbstractEntity
     protected $deleted = false;
 
     /**
+     * @var bool
+     */
+    protected $reported = false;
+
+    /**
+     * @var bool
+     */
+    protected $acknowledged = false;
+
+    /**
      * @return bool
      */
     public function isHidden(): bool
@@ -205,5 +215,39 @@ class Comment extends AbstractEntity
     public function setMailNotification(bool $mailNotification): void
     {
         $this->mailNotification = $mailNotification;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isReported(): bool
+    {
+        return $this->reported;
+    }
+
+    /**
+     * @param bool $reported
+     * @return void
+     */
+    public function setReported(bool $reported): void
+    {
+        $this->reported = $reported;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAcknowledged(): bool
+    {
+        return $this->acknowledged;
+    }
+
+    /**
+     * @param bool $acknowledged
+     * @return void
+     */
+    public function setAcknowledged(bool $acknowledged): void
+    {
+        $this->acknowledged = $acknowledged;
     }
 }

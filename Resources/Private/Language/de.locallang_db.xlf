@@ -38,6 +38,12 @@
       <trans-unit id="comment.page_uid">
         <target>Seiten ID des Kommentars</target>
       </trans-unit>
+      <trans-unit id="comment.reported">
+        <target>Gemeldet</target>
+      </trans-unit>
+      <trans-unit id="comment.acknowledged">
+        <target>Meldung ignoriert</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

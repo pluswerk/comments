@@ -64,4 +64,61 @@ class CommentRepository extends Repository
         $query->matching($query->equals('pageUid', $pageUid));
         return $query->execute();
     }
+
+    public function findByAcknowledged(int $pageUid = 0)
+    {
+        $query = $this->createQuery();
+
+        $query->getQuerySettings()
+            ->setRespectStoragePage(false)
+            ->setIgnoreEnableFields(true);
+        $query->matching($query->equals('acknowledged', 1));
+        if ($pageUid !== 0) {
+            $query->matching($query->equals('pageUid', $pageUid));
+        }
+
+        return $query->execute();
+    }
+
+    public function findByHidden(int $pageUid = 0)
+    {
+        $query = $this->createQuery();
+
+        $query->getQuerySettings()
+            ->setRespectStoragePage(false)
+            ->setIgnoreEnableFields(true);
+
+        $query->matching($query->equals('hidden', 1));
+        if ($pageUid !== 0) {
+            $query->matching($query->equals('pageUid', $pageUid));
+        }
+
+        return $query->execute();
+    }
+
+    public function findReported(int $pageUid = 0)
+    {
+        $query = $this->createQuery();
+
+        $query->getQuerySettings()
+            ->setRespectStoragePage(false);
+
+        $whereClauses = [
+            $query->equals('reported', 1),
+            $query->equals('acknowledged', 0),
+            $query->equals('disabled', 0),
+        ];
+
+        if ($pageUid !== 0) {
+            $whereClauses[] = $query->equals('pageUid', $pageUid);
+        }
+
+        $query->matching(
+            $query->logicalAnd(
+                $whereClauses
+            )
+        );
+
+        return $query->execute();
+    }
 }

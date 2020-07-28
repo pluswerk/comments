@@ -8,10 +8,10 @@ call_user_func(function () {
         'Pluswerk.Comments',
         'Comments',
         [
-            'Comments' => 'list,create,delete',
+            'Comments' => 'list,create,delete,report',
         ],
         [
-            'Comments' => 'list,create,delete',
+            'Comments' => 'list,create,delete,report',
         ]
     );
     if (TYPO3_MODE === 'BE') {

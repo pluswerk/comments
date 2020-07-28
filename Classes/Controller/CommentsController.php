@@ -31,11 +31,7 @@ class CommentsController extends ActionController
     {
         $context = GeneralUtility::makeInstance(Context::class);
         $user = null;
-        if (
-            $context->getPropertyFromAspect('frontend.user', 'isLoggedIn') &&
-            is_array($this->getTypoScriptFrontEndController()->fe_user->user) &&
-            $this->getTypoScriptFrontEndController()->fe_user->user['uid']
-        ) {
+        if ($this->isUserLoggedIn()) {
             $user = $this->getFrontendUser();
         }
 
@@ -51,12 +47,7 @@ class CommentsController extends ActionController
     public function createAction(Comment $commentObject): void
     {
         $flashMessageContent = 'comment.create.error';
-        $context = GeneralUtility::makeInstance(Context::class);
-        if (
-            $context->getPropertyFromAspect('frontend.user', 'isLoggedIn') &&
-            is_array($this->getTypoScriptFrontEndController()->fe_user->user) &&
-            $this->getTypoScriptFrontEndController()->fe_user->user['uid']
-        ) {
+        if ($this->isUserLoggedIn()) {
             $commentRepository = $this->objectManager->get(CommentRepository::class);
             $feUser = $this->getFrontendUser();
 
@@ -74,9 +65,7 @@ class CommentsController extends ActionController
             $this->objectManager->get(PersistenceManager::class)->persistAll();
         }
 
-        $this->addFlashMessage(LocalizationUtility::translate($flashMessageContent, 'comments'));
-        $redirectUrl = $this->uriBuilder->setTargetPageUid((int)$this->getTypoScriptFrontEndController()->id)->buildFrontendUri();
-        $this->redirectToUri($redirectUrl);
+        $this->redirectToPageWithMessage($flashMessageContent);
     }
 
     /**
@@ -87,14 +76,9 @@ class CommentsController extends ActionController
     {
         $flashMessageContent = 'comment.delete.error';
 
-        $context = GeneralUtility::makeInstance(Context::class);
-        if (
-            $context->getPropertyFromAspect('frontend.user', 'isLoggedIn') &&
-            is_array($this->getTypoScriptFrontEndController()->fe_user->user) &&
-            $this->getTypoScriptFrontEndController()->fe_user->user['uid']
-        ) {
+        if ($this->isUserLoggedIn()) {
             $feUser = $this->getFrontendUser();
-            if ($feUser->getUid() === (int)$this->getTypoScriptFrontEndController()->fe_user->user['uid']) {
+            if ($this->isUserAuthorized($feUser, $commentObject)) {
                 $commentRepository = $this->objectManager->get(CommentRepository::class);
                 $flashMessageContent = 'comment.delete.success';
                 $commentObject->setDisabled(true);
@@ -103,9 +87,70 @@ class CommentsController extends ActionController
             }
         }
 
-        $this->addFlashMessage(LocalizationUtility::translate($flashMessageContent, 'comments'));
+        $this->redirectToPageWithMessage($flashMessageContent);
+    }
+
+    /**
+     * @param Comment $commentObject
+     * @return void
+     */
+    public function reportAction(Comment $commentObject): void
+    {
+        $flashMessageContent = 'comment.report.error';
+
+        if ($this->isUserLoggedIn()) {
+            $feUser = $this->getFrontendUser();
+            if ($this->isUserAuthorized($feUser)) {
+                $flashMessageContent = 'comment.report.success';
+                if (!$commentObject->isReported() && !$commentObject->isAcknowledged()) {
+                    $commentRepository = $this->objectManager->get(CommentRepository::class);
+                    $commentObject->setReported(true);
+                    $commentRepository->update($commentObject);
+                    $this->objectManager->get(PersistenceManager::class)->persistAll();
+                }
+            }
+        }
+
+        $this->redirectToPageWithMessage($flashMessageContent);
+    }
+
+    private function redirectToPageWithMessage(string $messageContent = ''): void
+    {
+        if ($messageContent !== '') {
+            $this->addFlashMessage(LocalizationUtility::translate($messageContent, 'comments'));
+        }
+
         $redirectUrl = $this->uriBuilder->setTargetPageUid((int)$this->getTypoScriptFrontEndController()->id)->buildFrontendUri();
         $this->redirectToUri($redirectUrl);
+    }
+
+    private function isUserLoggedIn(): bool
+    {
+        $context = GeneralUtility::makeInstance(Context::class);
+
+        if (!$context->getPropertyFromAspect('frontend.user', 'isLoggedIn')) {
+            return false;
+        }
+
+        if (!is_array($this->getTypoScriptFrontEndController()->fe_user->user)) {
+            return false;
+        }
+
+        if (!$this->getTypoScriptFrontEndController()->fe_user->user['uid']) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private function isUserAuthorized(FrontendUser $user, Comment $comment = null): bool
+    {
+        $isCorrectUserLoggedIn = $user->getUid() === (int)$this->getTypoScriptFrontEndController()->fe_user->user['uid'];
+        if ($comment === null) {
+            return $isCorrectUserLoggedIn;
+        }
+
+        return $isCorrectUserLoggedIn && $user->getUid() === $comment->getUser()->getUid();
     }
 
     private function getTypoScriptFrontEndController(): TypoScriptFrontendController

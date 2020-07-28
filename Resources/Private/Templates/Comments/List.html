@@ -35,7 +35,7 @@
           <div class="col-md-2">
             <f:format.date date="{comment.crdate}" format="d.m.Y - H:i"/>
           </div>
-          <div class="{f:if(condition: '{activeUser.uid} == {comment.user.uid}', then: 'col-md-8', else: 'col-md-10')}">
+          <div class="col-md-8">
             <f:if condition="{comment.user}">
               <f:then>
                 <p><b>{comment.user.username}</b></p>
@@ -56,11 +56,22 @@
             </f:if>
           </div>
           <f:if condition="{activeUser.uid} == {comment.user.uid} && !{comment.disabled}">
-            <div class="col-md-2">
-              <f:link.action action="delete" arguments="{commentObject: comment}">
-                <f:translate key="table.delete" extensionName="comments"/>
-              </f:link.action>
-            </div>
+            <f:then>
+              <div class="col-md-2">
+                <f:link.action action="delete" arguments="{commentObject: comment}">
+                  <f:translate key="table.delete" extensionName="comments"/>
+                </f:link.action>
+              </div>
+            </f:then>
+            <f:else>
+              <f:if condition="{activeUser} && !{comment.disabled}">
+                <div class="col-md-2">
+                  <f:link.action action="report" arguments="{commentObject: comment}">
+                    <f:translate key="table.report" extensionName="comments"/>
+                  </f:link.action>
+                </div>
+              </f:if>
+            </f:else>
           </f:if>
         </div>
         <f:if condition="{comment.editorialComment}">
