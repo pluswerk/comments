@@ -6,12 +6,35 @@
 
 <f:section name="Main">
   <h1>
-    <f:translate key="dashboard.new" extensionName="comments"/>
+    <f:translate key="dashboard" extensionName="comments"/>
   </h1>
+  <h2>
+    <f:translate key="dashboard.new" extensionName="comments"/>
+  </h2>
 
   <div role="tabpanel">
     <div class="panel panel-default">
       <f:render partial="CommentApprovalTable" section="Main" arguments="{_all}" />
+    </div>
+  </div>
+
+  <h2>
+    <f:translate key="dashboard.reported" extensionName="comments"/>
+  </h2>
+
+  <div role="tabpanel">
+    <div class="panel panel-default">
+      <f:render partial="CommentReportTable" section="Main" arguments="{_all}" />
+    </div>
+  </div>
+
+  <h2>
+    <f:translate key="dashboard.acknowledged" extensionName="comments"/>
+  </h2>
+
+  <div role="tabpanel">
+    <div class="panel panel-default">
+      <f:render partial="CommentAcknowledgeTable" section="Main" arguments="{_all}" />
     </div>
   </div>
 </f:section>

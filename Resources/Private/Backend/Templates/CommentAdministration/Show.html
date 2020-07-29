@@ -20,6 +20,11 @@
               <f:translate key="list.approval" extensionName="comments"/>
             </a>
           </li>
+          <li role="presentation" class="t3js-tabmenu-item ">
+            <a href="#tab-3" title="" aria-controls="tab-3" role="tab" data-toggle="tab">
+              <f:translate key="list.report" extensionName="comments"/>
+            </a>
+          </li>
         </ul>
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="tab-1">
@@ -33,6 +38,23 @@
             <div class="panel panel-tab">
               <div class="panel-body">
                 <f:render partial="CommentApprovalTable" section="Main" arguments="{_all}" />
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="tab-3">
+            <div class="panel panel-tab">
+              <div class="panel-body">
+                <h2>
+                  <f:translate key="dashboard.reported" extensionName="comments"/>
+                </h2>
+
+                <f:render partial="CommentReportTable" section="Main" arguments="{_all}" />
+
+                <h2>
+                  <f:translate key="dashboard.acknowledged" extensionName="comments"/>
+                </h2>
+
+                <f:render partial="CommentAcknowledgeTable" section="Main" arguments="{_all}" />
               </div>
             </div>
           </div>
